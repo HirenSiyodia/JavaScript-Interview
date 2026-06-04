@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //co-pilot
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("done!");
+            }, 1000);
+        });
+
+        promise.then(
+            result => alert(result), // shows "done!" after 1 second
+            error => alert(error) // doesn't run
+        );
+
+        // Copilot
+        let promise2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(new Error("Whoops!"));
+            }, 1000);
+        });     
+
+        promise2.then(
+            result => alert(result), // doesn't run
+            error => alert(error) // shows "Error: Whoops!" after 1 second
+        );
+
+        // Promise.resolve(value) creates a resolved promise with the given value. => Yoshita Jain
+        let promise3 = new Promise((resolve, reject) => {
+            let present = true;
+            if (present) {
+                setTimeout(() => {
+                    resolve("done!");
+                }, 2000)
+            } else {
+                reject(new Error('no present')) 
+            }
+        }); 
+
+        promise3.then(
+            result => alert(result), // shows "done!" after 1 second
+            error => alert(error) // doesn't run
+        );  
+    </script>
+
+    
+</body>
+</html>
